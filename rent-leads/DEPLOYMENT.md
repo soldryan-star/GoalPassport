@@ -31,6 +31,18 @@ In **Project Settings → Environment Variables**, add:
 | `NEXT_PUBLIC_GA_ADS_CONVERSION_LABEL` | Optional | Conversion label from Google Ads. |
 | `NEXT_PUBLIC_PHONE` | Optional | Phone number for Call/WhatsApp buttons. |
 
+## 3b. Production tracking (GA4 + Google Ads)
+
+To track form submissions, phone clicks, WhatsApp clicks, and landing page visits—and to attribute Google Ads conversions—set these in Vercel (Production and Preview as needed):
+
+| Variable | Where to get it |
+|----------|-----------------|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4: Admin → Data Streams → your web stream → Measurement ID (e.g. `G-XXXXXXXXXX`). |
+| `NEXT_PUBLIC_GA_ADS_ID` | Google Ads: Tools → Conversions → set up conversion → tag ID (e.g. `AW-XXXXXXXXX`). |
+| `NEXT_PUBLIC_GA_ADS_CONVERSION_LABEL` | Same conversion: use the conversion label from the gtag snippet, or the full `send_to` value (e.g. `AW-XXX/YYY`). |
+
+Without these, the site works normally but no analytics or conversion events are sent. After setting them, redeploy so the env is available at build/runtime.
+
 ## 4. First deploy
 
 1. Set `DATABASE_URL` to your Postgres URL (Production and optionally Preview).

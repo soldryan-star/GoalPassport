@@ -6,6 +6,7 @@ export interface RentalAreaContent {
   headline: string;
   description: string;
   benefits: { title: string; description: string }[];
+  guideParagraphs: string[];
   faq: { question: string; answer: string }[];
   meta: {
     title: string;
@@ -26,6 +27,10 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { title: "Family-friendly areas", description: "Quiet streets, parks, and strong schools across North York." },
       { title: "Transit connected", description: "TTC subway and buses for an easy commute downtown or elsewhere." },
       { title: "Variety of rentals", description: "Condos, townhouses, and single-family homes to match your budget." },
+    ],
+    guideParagraphs: [
+      "North York is one of Toronto’s most diverse and family-friendly districts. Neighbourhoods like Willowdale, Bayview Village, and Newtonbrook offer a mix of high-rises, townhouses, and detached homes, with strong public transit along the Yonge Street corridor and easy access to parks and schools.",
+      "When searching for a rental in North York, consider your commute: the TTC Line 1 subway runs through the area, and bus routes connect to the rest of the city. Budgets vary widely—condos and apartments typically start in the mid-$1,000s for one bedroom, while larger units and houses command more. Signing up for new-listing alerts helps you see properties as soon as they’re listed, before open houses fill up.",
     ],
     faq: [
       { question: "How do I get rental alerts for North York?", answer: "Sign up with your email and select North York as a preferred area. We’ll send you new listings that match your criteria as they become available." },
@@ -50,6 +55,10 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { title: "Easy commute", description: "Highway 404 and transit options to Toronto and the GTA." },
       { title: "Range of options", description: "From condos to detached homes to suit different budgets." },
     ],
+    guideParagraphs: [
+      "Richmond Hill offers a quieter, suburban lifestyle while staying within reach of Toronto. The area is popular with families and professionals who want more space, good schools, and access to Highway 404 and public transit. Rental stock includes newer condos, townhouses, and single-family homes.",
+      "Rentals in Richmond Hill tend to offer more square footage per dollar than in the city core. If you’re relocating from downtown, expect a different pace and a car-friendly layout, though GO Transit and York Region Transit provide options for commuters. Getting alerts when new listings go live helps you act quickly in a competitive market.",
+    ],
     faq: [
       { question: "How can I get Richmond Hill rental alerts?", answer: "Enter your details above and choose Richmond Hill as a preferred area. We’ll email you when new rentals matching your criteria are listed." },
       { question: "Are Richmond Hill rental alerts free?", answer: "Yes. There is no charge to sign up or receive rental alerts for Richmond Hill." },
@@ -72,6 +81,10 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { title: "Central location", description: "Walk to work, transit, restaurants, and entertainment." },
       { title: "New builds & condos", description: "Many new and modern condo buildings with amenities." },
       { title: "Flexible budgets", description: "Listings across a range of price points and bedroom counts." },
+    ],
+    guideParagraphs: [
+      "Downtown Toronto is the city’s core: condos and apartments dominate, with easy access to the financial district, entertainment, and transit. Neighbourhoods like the Entertainment District, King West, and the Waterfront offer a range of building ages and price points, from older rental towers to new luxury condos.",
+      "Competition for downtown rentals is high, and new listings often get multiple applications quickly. Setting your budget and bedroom count in advance—and signing up for alerts so you see new listings first—gives you a better chance to view and apply before others. Many buildings are pet-friendly or have gyms and concierge; check each listing for details.",
     ],
     faq: [
       { question: "How do I get downtown Toronto rental alerts?", answer: "Sign up above with your email and select Downtown Toronto. We’ll send you new condo and apartment listings as they’re listed." },

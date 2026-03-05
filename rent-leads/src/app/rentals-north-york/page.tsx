@@ -5,6 +5,9 @@ import LeadForm from "@/components/LeadForm";
 import CallToActionButtons from "@/components/CallToActionButtons";
 import LandingTrustSection from "@/components/LandingTrustSection";
 import FAQSection from "@/components/FAQSection";
+import HowItWorks from "@/components/HowItWorks";
+import AreaGuideSection from "@/components/AreaGuideSection";
+import SocialProof from "@/components/SocialProof";
 
 const AREA_PATH = "/rentals-north-york";
 
@@ -55,7 +58,12 @@ export default function RentalsNorthYorkPage() {
         </div>
       </section>
 
-      {/* Benefits */}
+      <section className="border-t border-zinc-200 bg-white py-12 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4">
+          <SocialProof />
+        </div>
+      </section>
+
       <section className="border-t border-zinc-200 bg-white py-16 sm:py-20" aria-labelledby="benefits-heading">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 id="benefits-heading" className="text-center text-2xl font-bold text-zinc-900 sm:text-3xl">
@@ -77,6 +85,8 @@ export default function RentalsNorthYorkPage() {
         </div>
       </section>
 
+      <HowItWorks />
+      <AreaGuideSection areaName={content.name} paragraphs={content.guideParagraphs} />
       <LandingTrustSection areaName={content.name} />
       <FAQSection items={content.faq} areaName={content.name} />
     </article>

@@ -135,6 +135,9 @@ export default function LeadForm() {
       <p className="mt-2 text-sm text-zinc-600">
         We&apos;ll email you when new listings match your criteria.
       </p>
+      <p className="mt-1 text-xs text-zinc-500">
+        We don&apos;t share your info with third parties. Unsubscribe anytime.
+      </p>
       <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
         {/* Full Name */}
         <div>

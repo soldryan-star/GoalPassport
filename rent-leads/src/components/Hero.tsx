@@ -1,4 +1,6 @@
 import LeadForm from "./LeadForm";
+import SocialProof from "./SocialProof";
+import CallToActionButtons from "./CallToActionButtons";
 
 export default function Hero() {
   return (
@@ -25,11 +27,18 @@ export default function Hero() {
               >
                 Browse Areas
               </a>
+              <CallToActionButtons />
+            </div>
+            <div className="mt-10 hidden lg:block">
+              <SocialProof />
             </div>
           </div>
           <div id="lead-form" className="scroll-mt-24">
             <LeadForm />
           </div>
+        </div>
+        <div className="mt-10 lg:hidden">
+          <SocialProof />
         </div>
       </div>
     </section>
