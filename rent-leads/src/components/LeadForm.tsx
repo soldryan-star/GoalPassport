@@ -26,6 +26,13 @@ const AREA_OPTIONS = [
   { value: "north-york", label: "North York" },
   { value: "richmond-hill", label: "Richmond Hill" },
   { value: "downtown-toronto", label: "Downtown Toronto" },
+  { value: "scarborough", label: "Scarborough" },
+  { value: "vaughan", label: "Vaughan" },
+  { value: "woodbridge", label: "Woodbridge" },
+  { value: "etobicoke", label: "Etobicoke" },
+  { value: "east-york", label: "East York" },
+  { value: "aurora", label: "Aurora" },
+  { value: "newmarket", label: "Newmarket" },
 ];
 
 // E.164-ish: optional +, digits, spaces, dashes, parentheses

@@ -8,6 +8,13 @@ const LANDING_PATHS = [
   "/rentals-north-york",
   "/rentals-richmond-hill",
   "/rentals-downtown-toronto",
+  "/rentals-scarborough",
+  "/rentals-vaughan",
+  "/rentals-woodbridge",
+  "/rentals-etobicoke",
+  "/rentals-east-york",
+  "/rentals-aurora",
+  "/rentals-newmarket",
 ];
 
 export default function LandingPageTracker() {

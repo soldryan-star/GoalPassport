@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Rental Areas | Toronto Rent Leads",
-  description: "Browse rental areas: North York, Richmond Hill, Downtown Toronto.",
+  description: "Browse rental areas: North York, Richmond Hill, Downtown Toronto, Scarborough, Vaughan, Woodbridge, Etobicoke, East York, Aurora, Newmarket.",
 };
 
 const areas = [
@@ -24,6 +24,48 @@ const areas = [
     name: "Downtown Toronto",
     description: "Condos and apartments in the heart of the city.",
     cta: "Get Downtown alerts",
+  },
+  {
+    slug: "scarborough",
+    name: "Scarborough",
+    description: "Diverse east-end neighbourhoods with transit and affordable options.",
+    cta: "Get Scarborough alerts",
+  },
+  {
+    slug: "vaughan",
+    name: "Vaughan",
+    description: "Suburban living north of Toronto with transit and new development.",
+    cta: "Get Vaughan alerts",
+  },
+  {
+    slug: "woodbridge",
+    name: "Woodbridge",
+    description: "Community-focused Vaughan neighbourhood with townhouses and homes.",
+    cta: "Get Woodbridge alerts",
+  },
+  {
+    slug: "etobicoke",
+    name: "Etobicoke",
+    description: "Toronto west end with condos, transit, and highway access.",
+    cta: "Get Etobicoke alerts",
+  },
+  {
+    slug: "east-york",
+    name: "East York",
+    description: "Central-east Toronto with neighbourhood feel and strong transit.",
+    cta: "Get East York alerts",
+  },
+  {
+    slug: "aurora",
+    name: "Aurora",
+    description: "York Region town with historic downtown, GO Transit, and family housing.",
+    cta: "Get Aurora alerts",
+  },
+  {
+    slug: "newmarket",
+    name: "Newmarket",
+    description: "Historic town with GO Transit and a mix of houses and townhomes.",
+    cta: "Get Newmarket alerts",
   },
 ];
 

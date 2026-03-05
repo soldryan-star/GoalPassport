@@ -24,6 +24,48 @@ const areas: Record<
       "Downtown Toronto has condos and apartments in the heart of the city. Be first to know when new listings go live.",
     metaDescription: "Get new rental listings in Downtown Toronto. Free condo and apartment alerts.",
   },
+  "scarborough": {
+    name: "Scarborough",
+    description:
+      "Scarborough offers diverse neighbourhoods, transit, and more affordable rents. Get new rental listings in Scarborough delivered to your inbox.",
+    metaDescription: "Get new rental listings in Scarborough. Free alerts for apartments and homes.",
+  },
+  "vaughan": {
+    name: "Vaughan",
+    description:
+      "Vaughan has suburban living with the TTC subway, Viva, and Highway 400. Sign up for rental alerts for Vaughan and surrounding areas.",
+    metaDescription: "Get new rental listings in Vaughan. Free alerts for apartments and homes.",
+  },
+  "woodbridge": {
+    name: "Woodbridge",
+    description:
+      "Woodbridge is a Vaughan neighbourhood with townhouses and single-family homes. Get new rental listings in Woodbridge first.",
+    metaDescription: "Get new rental listings in Woodbridge. Free alerts for townhouses and homes.",
+  },
+  "etobicoke": {
+    name: "Etobicoke",
+    description:
+      "Etobicoke is Toronto's west end with condos, townhouses, and transit. Be first to see new Etobicoke rental listings.",
+    metaDescription: "Get new rental listings in Etobicoke. Free alerts for condos and homes.",
+  },
+  "east-york": {
+    name: "East York",
+    description:
+      "East York offers a neighbourhood feel with strong transit. Get new rental listings in East York delivered to your inbox.",
+    metaDescription: "Get new rental listings in East York. Free alerts for apartments and homes.",
+  },
+  "aurora": {
+    name: "Aurora",
+    description:
+      "Aurora is a York Region town with historic downtown, GO Transit, and family housing. Get new rental listings in Aurora first.",
+    metaDescription: "Get new rental listings in Aurora. Free alerts for homes and townhouses.",
+  },
+  "newmarket": {
+    name: "Newmarket",
+    description:
+      "Newmarket offers a historic downtown, GO Transit, and a mix of rentals. Sign up for new listing alerts in Newmarket.",
+    metaDescription: "Get new rental listings in Newmarket. Free alerts for homes and townhouses.",
+  },
 };
 
 type Props = { params: Promise<{ slug: string }> };
@@ -33,6 +75,13 @@ export async function generateStaticParams() {
     { slug: "north-york" },
     { slug: "richmond-hill" },
     { slug: "downtown-toronto" },
+    { slug: "scarborough" },
+    { slug: "vaughan" },
+    { slug: "woodbridge" },
+    { slug: "etobicoke" },
+    { slug: "east-york" },
+    { slug: "aurora" },
+    { slug: "newmarket" },
   ];
 }
 
