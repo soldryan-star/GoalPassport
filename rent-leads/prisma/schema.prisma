@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Lead {
+  id              String   @id @default(cuid())
+  name            String
+  phone           String
+  email           String
+  budget          String
+  bedrooms        String
+  move_in_date    String   @map("move_in_date")
+  preferred_areas String   @map("preferred_areas")
+  created_at      DateTime @default(now()) @map("created_at")
+
+  @@map("leads")
+}

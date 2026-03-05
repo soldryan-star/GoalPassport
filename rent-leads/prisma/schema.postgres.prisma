@@ -1,0 +1,25 @@
+// Use this schema for Vercel/production (PostgreSQL).
+// For local dev, the default schema.prisma uses SQLite.
+// Build for Vercel: copy to schema.prisma or use vercel-build script.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Lead {
+  id              String   @id @default(cuid())
+  name            String
+  phone           String
+  email           String
+  budget          String
+  bedrooms        String
+  move_in_date    String   @map("move_in_date")
+  preferred_areas String   @map("preferred_areas")
+  created_at      DateTime @default(now()) @map("created_at")
+
+  @@map("leads")
+}
