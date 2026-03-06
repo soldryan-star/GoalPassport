@@ -48,7 +48,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are available in North York?", answer: "North York offers condos, townhouses, and single-family homes. You can filter by budget and number of bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in North York | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in North York | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in North York first. Free alerts for apartments, condos & homes. Family-friendly, transit-connected neighbourhoods.",
       keywords: ["rentals North York", "North York apartments", "North York rental listings", "rent North York Toronto", "North York condos"],
       canonicalPath: "/rentals-north-york",
@@ -75,7 +75,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What areas of Richmond Hill have rentals?", answer: "Listings cover Richmond Hill neighbourhoods. You can specify your budget and bedroom count to get relevant alerts." },
     ],
     meta: {
-      title: "Rentals in Richmond Hill | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Richmond Hill | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Richmond Hill. Free alerts for apartments & homes. Suburban living near Toronto.",
       keywords: ["rentals Richmond Hill", "Richmond Hill apartments", "Richmond Hill rental listings", "rent Richmond Hill", "Richmond Hill condos"],
       canonicalPath: "/rentals-richmond-hill",
@@ -102,7 +102,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What kind of rentals are in downtown Toronto?", answer: "Most downtown listings are condos and apartments. You can filter by budget and number of bedrooms when you sign up." },
     ],
     meta: {
-      title: "Downtown Toronto Rentals | New Condos & Apartments | Toronto Rent Leads",
+      title: "Downtown Toronto Rentals | New Condos & Apartments | Toronto Rental Finder",
       description: "Get new downtown Toronto rental listings first. Free alerts for condos & apartments in the core.",
       keywords: ["downtown Toronto rentals", "Toronto downtown apartments", "downtown Toronto condos", "rent downtown Toronto", "Toronto core rentals"],
       canonicalPath: "/rentals-downtown-toronto",
@@ -129,7 +129,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in Scarborough?", answer: "Scarborough has condos, townhouses, and single-family homes. You can filter by budget and bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in Scarborough | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Scarborough | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Scarborough. Free alerts for apartments & homes. Transit-connected east Toronto.",
       keywords: ["rentals Scarborough", "Scarborough apartments", "Scarborough rental listings", "rent Scarborough Toronto"],
       canonicalPath: "/rentals-scarborough",
@@ -156,7 +156,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What areas of Vaughan have rentals?", answer: "Listings cover Vaughan including Vaughan Metropolitan Centre, Woodbridge, and surrounding neighbourhoods." },
     ],
     meta: {
-      title: "Rentals in Vaughan | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Vaughan | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Vaughan. Free alerts for apartments & homes. Suburban living north of Toronto.",
       keywords: ["rentals Vaughan", "Vaughan apartments", "Vaughan rental listings", "rent Vaughan", "Vaughan condos"],
       canonicalPath: "/rentals-vaughan",
@@ -183,7 +183,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in Woodbridge?", answer: "Woodbridge has townhouses and single-family homes, plus some condos. Filter by budget and bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in Woodbridge | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Woodbridge | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Woodbridge. Free alerts for townhouses & homes. Vaughan neighbourhood.",
       keywords: ["rentals Woodbridge", "Woodbridge apartments", "Woodbridge rental listings", "rent Woodbridge Vaughan"],
       canonicalPath: "/rentals-woodbridge",
@@ -210,7 +210,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in Etobicoke?", answer: "Etobicoke has condos, townhouses, and single-family homes. You can filter by budget and bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in Etobicoke | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Etobicoke | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Etobicoke. Free alerts for condos & homes. Toronto west end.",
       keywords: ["rentals Etobicoke", "Etobicoke apartments", "Etobicoke rental listings", "rent Etobicoke Toronto"],
       canonicalPath: "/rentals-etobicoke",
@@ -237,7 +237,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in East York?", answer: "East York has condos, apartments, and some houses. You can filter by budget and bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in East York | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in East York | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in East York. Free alerts for apartments & homes. Central-east Toronto.",
       keywords: ["rentals East York", "East York apartments", "East York rental listings", "rent East York Toronto"],
       canonicalPath: "/rentals-east-york",
@@ -264,7 +264,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in Aurora?", answer: "Aurora has single-family homes, townhouses, and some condos. You can filter by budget and bedrooms when you sign up." },
     ],
     meta: {
-      title: "Rentals in Aurora | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Aurora | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Aurora. Free alerts for homes & townhouses. York Region north of Toronto.",
       keywords: ["rentals Aurora", "Aurora apartments", "Aurora rental listings", "rent Aurora Ontario", "Aurora townhouses"],
       canonicalPath: "/rentals-aurora",
@@ -291,7 +291,7 @@ export const RENTAL_AREAS: RentalAreaContent[] = [
       { question: "What types of rentals are in Newmarket?", answer: "Newmarket has single-family homes, townhouses, and condos. Filter by budget and bedroom count when you sign up." },
     ],
     meta: {
-      title: "Rentals in Newmarket | New Listings & Apartments | Toronto Rent Leads",
+      title: "Rentals in Newmarket | New Listings & Apartments | Toronto Rental Finder",
       description: "Get new rental listings in Newmarket. Free alerts for homes & townhouses. York Region.",
       keywords: ["rentals Newmarket", "Newmarket apartments", "Newmarket rental listings", "rent Newmarket Ontario"],
       canonicalPath: "/rentals-newmarket",

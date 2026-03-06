@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPrisma } from "@/lib/db";
+import { sendLeadNotificationEmail } from "@/lib/email";
 
 const PHONE_REGEX = /^[\d\s\-\(\)\+]{10,20}$/;
 
@@ -108,6 +109,12 @@ export async function POST(request: NextRequest) {
         preferred_areas: data.preferred_areas,
       },
     });
+
+    try {
+      await sendLeadNotificationEmail(data);
+    } catch (emailErr) {
+      console.error("Lead notification email failed:", emailErr);
+    }
 
     return NextResponse.json(
       { success: true, message: "Lead saved successfully." },

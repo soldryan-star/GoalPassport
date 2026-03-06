@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Rental Areas | Toronto Rent Leads",
+  title: "Rental Areas | Toronto Rental Finder",
   description: "Browse rental areas: North York, Richmond Hill, Downtown Toronto, Scarborough, Vaughan, Woodbridge, Etobicoke, East York, Aurora, Newmarket.",
 };
 

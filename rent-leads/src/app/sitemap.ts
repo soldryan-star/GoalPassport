@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentleads.com";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentalfinder.com";
 
 const AREA_SLUGS = [
   "north-york",

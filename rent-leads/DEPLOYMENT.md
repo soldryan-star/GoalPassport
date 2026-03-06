@@ -30,6 +30,9 @@ In **Project Settings → Environment Variables**, add:
 | `NEXT_PUBLIC_GA_ADS_ID` | Optional | Google Ads ID for conversion tracking. |
 | `NEXT_PUBLIC_GA_ADS_CONVERSION_LABEL` | Optional | Conversion label from Google Ads. |
 | `NEXT_PUBLIC_PHONE` | Optional | Phone number for Call/WhatsApp buttons. |
+| `RESEND_API_KEY` | Optional | Resend API key (from [Resend](https://resend.com)). If set with `LEAD_NOTIFICATION_EMAIL`, new leads trigger an email to that address. If unset, leads are still saved; no email is sent. |
+| `LEAD_NOTIFICATION_EMAIL` | Optional | Email address that receives new lead summaries (e.g. your inbox). Requires `RESEND_API_KEY`. |
+| `RESEND_FROM` | Optional | "From" address for lead emails. Production should use a verified domain in Resend; for testing you can omit this to use Resend’s onboarding domain. |
 
 ## 3b. Production tracking (GA4 + Google Ads)
 
@@ -55,6 +58,7 @@ Without these, the site works normally but no analytics or conversion events are
 
 - **Lead form:** Submits to `POST /api/leads`. The API uses `getPrisma()` and works with the Postgres `DATABASE_URL` set on Vercel.
 - **API route:** `/api/leads` is serverless; it connects to Postgres using `DATABASE_URL` and does not use SQLite on Vercel.
+- **Lead notification email:** If `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL` are set, each new lead triggers an email to that address. For production, use a **verified domain** in the [Resend dashboard](https://resend.com/domains) and set `RESEND_FROM` to an address on that domain (e.g. `leads@yourdomain.com`). For testing you can use Resend’s free onboarding domain (`onboarding@resend.dev`).
 
 ## 6. Preview deployments
 

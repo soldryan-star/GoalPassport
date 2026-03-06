@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <p className="text-sm text-zinc-600">
-            © {new Date().getFullYear()} Toronto Rent Leads. All rights reserved.
+            © {new Date().getFullYear()} Toronto Rental Finder. All rights reserved.
           </p>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Footer">
             {footerLinks.map(({ href, label }) => (

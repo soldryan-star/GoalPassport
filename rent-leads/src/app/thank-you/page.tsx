@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Thank You | Toronto Rent Leads",
+  title: "Thank You | Toronto Rental Finder",
   description: "Thanks for signing up for Toronto rental alerts.",
 };
 

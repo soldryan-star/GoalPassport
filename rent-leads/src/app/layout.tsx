@@ -11,19 +11,19 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentleads.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentalfinder.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Toronto Rent Leads | New Rental Listings Alerts",
+  title: "Toronto Rental Finder | New Rental Listings Alerts",
   description:
     "Get new rental listings in Toronto first. Free alerts for North York, Richmond Hill, Downtown Toronto and more.",
   openGraph: {
     title: "Get New Rental Listings in Toronto",
     description: "Free rental alerts for Toronto neighbourhoods.",
     url: "/",
-    siteName: "Toronto Rent Leads",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Toronto Rent Leads – New rental listings first" }],
+    siteName: "Toronto Rental Finder",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Toronto Rental Finder – New rental listings first" }],
   },
   twitter: {
     card: "summary_large_image",

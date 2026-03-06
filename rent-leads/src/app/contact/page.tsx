@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Toronto Rent Leads",
-  description: "Get in touch with Toronto Rent Leads.",
+  title: "Contact | Toronto Rental Finder",
+  description: "Get in touch with Toronto Rental Finder.",
 };
 
 export default function ContactPage() {

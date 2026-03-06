@@ -14,7 +14,7 @@ const AREA_PATH = "/rentals-downtown-toronto";
 const content = requireRentalAreaByPath(AREA_PATH);
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentleads.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://torontorentalfinder.com"),
   title: content.meta.title,
   description: content.meta.description,
   keywords: content.meta.keywords,

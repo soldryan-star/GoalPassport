@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Find Rentals in Toronto | Toronto Rent Leads Guide",
+  title: "How to Find Rentals in Toronto | Toronto Rental Finder Guide",
   description:
     "A practical guide to finding rental apartments and homes in Toronto and the GTA. Learn how to get new listings first, choose areas, and secure viewings.",
   openGraph: {
-    title: "How to Find Rentals in Toronto | Toronto Rent Leads Guide",
+    title: "How to Find Rentals in Toronto | Toronto Rental Finder Guide",
     description:
       "A practical guide to finding rental apartments and homes in Toronto and the GTA. Get new listings first and secure viewings.",
     url: "/guide",
@@ -37,7 +37,7 @@ export default function GuidePage() {
         <div>
           <h2 className="text-xl font-semibold text-zinc-900">How we help</h2>
           <p className="mt-2 text-zinc-600">
-            Toronto Rent Leads sends you free email alerts when new rentals match your budget and preferred 
+            Toronto Rental Finder sends you free email alerts when new rentals match your budget and preferred 
             areas. You sign up once with your criteria (areas, budget, bedrooms, move-in date). When a new 
             listing fits, we notify you so you can view and apply quickly. No cost, no credit card required.
           </p>

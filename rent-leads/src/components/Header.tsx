@@ -37,7 +37,7 @@ export default function Header() {
           className="text-lg font-semibold tracking-tight text-zinc-900 sm:text-xl"
           onClick={() => setMenuOpen(false)}
         >
-          Toronto Rent Leads
+          Toronto Rental Finder
         </Link>
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main">

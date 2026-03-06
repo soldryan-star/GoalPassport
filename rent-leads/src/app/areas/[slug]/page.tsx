@@ -89,9 +89,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const area = areas[slug];
   if (!area)
-    return { title: "Area | Toronto Rent Leads" };
+    return { title: "Area | Toronto Rental Finder" };
   return {
-    title: `${area.name} Rentals | Toronto Rent Leads`,
+    title: `${area.name} Rentals | Toronto Rental Finder`,
     description: area.metaDescription,
   };
 }

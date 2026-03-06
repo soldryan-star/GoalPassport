@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Toronto Rent Leads",
-  description: "Privacy policy for Toronto Rent Leads.",
+  title: "Privacy Policy | Toronto Rental Finder",
+  description: "Privacy policy for Toronto Rental Finder.",
 };
 
 export default function PrivacyPage() {
