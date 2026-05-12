@@ -20,7 +20,7 @@ export function HomeHero() {
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-zinc-400">
-            Ground-level intel for host cities, matchday chaos, hotels, bars, and the vertical clips your FYP wishes it had.
+            Ground-level intel for all 16 host cities, matchday chaos, hotels, bars, and the vertical clips your FYP wishes it had.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

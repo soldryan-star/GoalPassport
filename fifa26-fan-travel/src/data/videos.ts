@@ -48,4 +48,20 @@ export const VERTICAL_VIDEOS: VerticalVideo[] = [
     duration: "1:02",
     accent: "from-violet-500 to-fuchsia-950",
   },
+  {
+    id: "v6",
+    title: "Seattle Link train matchday squeeze",
+    creator: "@emeraldcityultras",
+    views: "445K",
+    duration: "0:28",
+    accent: "from-emerald-600 to-slate-900",
+  },
+  {
+    id: "v7",
+    title: "Guadalajara tailgate + birria sprint",
+    creator: "@chivaburo",
+    views: "1.8M",
+    duration: "0:41",
+    accent: "from-red-600 to-amber-900",
+  },
 ];

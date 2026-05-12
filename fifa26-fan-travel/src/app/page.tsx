@@ -27,13 +27,15 @@ export default function HomePage() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Host cities</p>
-              <h2 className="mt-2 font-display text-4xl text-white sm:text-5xl">Six cities. One tournament.</h2>
+              <h2 className="mt-2 font-display text-4xl text-white sm:text-5xl">
+                {CITIES.length} host cities. One tournament.
+              </h2>
             </div>
             <Link href="/cities" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300">
               All cities →
             </Link>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {CITIES.map((city, i) => (
               <CityCard key={city.slug} city={city} index={i} />
             ))}
