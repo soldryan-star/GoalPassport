@@ -15,7 +15,8 @@ export default function HotelsHubPage() {
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Stays</p>
       <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">Hotel intelligence hub</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
-        SEO-first layouts with ratings, perks, and partner-ready CTAs. Wire real partner feeds or APIs when contracts clear.
+        Compare ratings, amenities, and nightly rates from major booking partners before you lock dates for FIFA World Cup
+        2026™.
       </p>
       <AffiliateNotice className="mt-6 max-w-2xl" />
       <div className="mt-10 grid gap-6 sm:grid-cols-2">

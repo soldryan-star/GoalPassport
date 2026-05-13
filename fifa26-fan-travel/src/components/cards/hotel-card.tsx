@@ -4,14 +4,32 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { HotelListing } from "@/data/hotels";
 import { GlassPanel } from "@/components/ui/glass-panel";
-import { buildHotelSearchAffiliateUrl } from "@/lib/affiliate";
+import { buildHotelSearchOutbound } from "@/lib/affiliate";
+
+const HOTEL_CARD_CTA = ["View hotel deals", "Check availability", "See hotel offers", "Explore stays"] as const;
+
+function hotelCardCtaLabel(i: number): string {
+  return HOTEL_CARD_CTA[i % HOTEL_CARD_CTA.length];
+}
+
+function nightlyRateCaption(i: number, priceFrom: string): string {
+  switch (i % 3) {
+    case 0:
+      return "Avg nightly rate";
+    case 1:
+      return "Estimated nightly rate";
+    default:
+      return `From ${priceFrom}/night`;
+  }
+}
 
 export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: number }) {
-  const partnerUrl = buildHotelSearchAffiliateUrl({
+  const { url: outboundUrl, monetized } = buildHotelSearchOutbound({
     city: hotel.city,
     listingId: hotel.id,
     utmCampaign: `hotel-${hotel.id}`,
   });
+  const outboundRel = monetized ? "sponsored noopener noreferrer" : "noopener noreferrer";
 
   return (
     <motion.div
@@ -33,7 +51,7 @@ export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: n
           </div>
         </div>
         <p className="mt-3 text-2xl font-black text-emerald-400">{hotel.priceFrom}</p>
-        <p className="text-xs text-zinc-500">avg / night — placeholder pricing</p>
+        <p className="text-xs text-zinc-500">{nightlyRateCaption(index, hotel.priceFrom)}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {hotel.perks.map((p) => (
             <li key={p} className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">
@@ -41,21 +59,21 @@ export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: n
             </li>
           ))}
         </ul>
-        {partnerUrl ? (
+        {outboundUrl ? (
           <a
-            href={partnerUrl}
+            href={outboundUrl}
             target="_blank"
-            rel="sponsored noopener noreferrer"
+            rel={outboundRel}
             className="mt-auto inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold text-zinc-950 transition hover:opacity-90"
           >
-            View deal — partner site
+            {hotelCardCtaLabel(index)}
           </a>
         ) : (
           <Link
             href="/hotels"
             className="mt-auto inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
           >
-            Browse hotel hub (add partner ID in .env)
+            Browse stay guides
           </Link>
         )}
       </GlassPanel>

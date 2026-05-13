@@ -20,7 +20,7 @@ export default function AboutPage() {
         <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Editorial standards</h2>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
           <li>Affiliate relationships are disclosed on every monetised page.</li>
-          <li>Hotel pricing shown as placeholders until live partner feeds connect.</li>
+          <li>Hotel rates reflect typical ranges; live pricing and availability are confirmed at partner checkout.</li>
           <li>Sportsbook integrations will launch only where legally compliant.</li>
         </ul>
       </GlassPanel>

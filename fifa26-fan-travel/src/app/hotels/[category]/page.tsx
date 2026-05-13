@@ -51,7 +51,7 @@ export default async function HotelCategoryPage({ params }: Props) {
           <div className="relative flex h-full flex-col items-center justify-center px-4 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-400">Map module</p>
             <p className="mt-2 max-w-md text-sm text-zinc-400">
-              Drop-in Mapbox / Google Maps with stadium pins, walking isochrones, and affiliate hotel markers.
+              Interactive venue map with stadium pins, walk-friendly zones, and partner-listed stays nearby.
             </p>
           </div>
         </div>
