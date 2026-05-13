@@ -7,8 +7,6 @@ import { RG } from "@/constants/responsible-gambling";
 const social = [
   { label: "TikTok", href: "https://tiktok.com" },
   { label: "Instagram", href: "https://instagram.com" },
-  { label: "X", href: "https://x.com" },
-  { label: "YouTube", href: "https://youtube.com" },
 ];
 
 export function SiteFooter() {
