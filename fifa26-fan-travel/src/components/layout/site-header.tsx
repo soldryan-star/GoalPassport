@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { NavBrand } from "@/components/layout/nav-brand";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -25,27 +25,11 @@ export function SiteHeader() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950 backdrop-blur-xl dark:bg-zinc-950">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-3">
-        <Link
-          href="/"
-          className="flex min-w-0 shrink items-center rounded-lg outline-offset-2 focus-visible:outline focus-visible:ring-2 focus-visible:ring-emerald-500/60"
-          aria-label="GoalPassport home"
-        >
-          <span className="relative block h-8 w-[min(100%,200px)] sm:h-9 sm:w-[min(100%,260px)] lg:h-10 lg:w-[min(100%,300px)]">
-            <Image
-              src="/goalpassport-wordmark.png"
-              alt="GoalPassport"
-              width={1024}
-              height={341}
-              className="h-full w-full object-contain object-left"
-              sizes="(max-width: 640px) 200px, 300px"
-              priority
-            />
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/95 backdrop-blur-md dark:bg-zinc-950">
+      <div className="mx-auto flex min-h-[72px] max-w-7xl items-center px-4 sm:min-h-[76px] sm:px-6">
+        <NavBrand />
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="ml-10 hidden items-center gap-0.5 lg:ml-14 lg:flex xl:ml-16">
           {nav.map(({ href, label }) => {
             const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
@@ -53,7 +37,7 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium transition",
+                  "rounded-lg px-3 py-2.5 text-sm font-medium transition",
                   active ? "bg-white/10 text-white" : "text-zinc-400 hover:bg-white/5 hover:text-white",
                 )}
               >
@@ -63,7 +47,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
