@@ -4,7 +4,7 @@ import { GlassPanel } from "@/components/ui/glass-panel";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Groundline 26 is an independent FIFA 2026™ fan travel and entertainment publication.",
+  description: "GoalPassport is an independent FIFA 2026™ fan travel and entertainment publication.",
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">About</p>
       <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">Built for traveling fans</h1>
       <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-        Groundline 26 blends ESPN-grade logistics with Bleacher Report tone and travel-guide utility — optimised for the
+        GoalPassport blends ESPN-grade logistics with Bleacher Report tone and travel-guide utility — optimised for the
         vertical-video generation who still read when flights are delayed.
       </p>
       <GlassPanel className="mt-10">
@@ -27,7 +27,10 @@ export default function AboutPage() {
       <section id="contact" className="mt-12">
         <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Contact</h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Partnerships: <a className="text-emerald-600 underline dark:text-emerald-400" href="mailto:hello@groundline26.com">hello@groundline26.com</a>
+          Partnerships:{" "}
+          <a className="text-emerald-600 underline dark:text-emerald-400" href="mailto:hello@goalpassport.com">
+            hello@goalpassport.com
+          </a>
         </p>
       </section>
       <section className="mt-12">

@@ -30,9 +30,9 @@ export function SiteHeader() {
             G
           </span>
           <div className="leading-tight">
-            <span className="block font-display text-lg tracking-wide text-white">Groundline 26</span>
+            <span className="block font-display text-lg tracking-wide text-white">GoalPassport</span>
             <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500 sm:block">
-              Fan travel
+              FIFA 2026 fan travel
             </span>
           </div>
         </Link>

@@ -4,7 +4,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem storageKey="groundline26-theme">
+    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem storageKey="goalpassport-theme">
       {children}
     </NextThemesProvider>
   );

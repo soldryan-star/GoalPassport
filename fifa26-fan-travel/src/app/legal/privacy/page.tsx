@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How Groundline 26 collects and uses your information.",
+  description: "How GoalPassport collects and uses your information.",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           Data may be processed by Supabase and hosting providers in line with their policies.
         </p>
         <p>You may unsubscribe from marketing emails at any time via the link in each message.</p>
-        <p>For requests regarding your data, contact hello@groundline26.com.</p>
+        <p>For requests regarding your data, contact hello@goalpassport.com.</p>
 
         <h2 className="pt-6 font-display text-2xl text-zinc-900 dark:text-white">Affiliate and partner links</h2>
         <p>

@@ -22,8 +22,8 @@ export function buildHotelSearchAffiliateUrl(opts: {
   const aid = process.env.NEXT_PUBLIC_BOOKING_PARTNER_ID?.trim();
   if (!aid) return null;
 
-  const label = (process.env.NEXT_PUBLIC_BOOKING_LABEL ?? "groundline26-hotels").trim();
-  const utmSource = process.env.NEXT_PUBLIC_AFFILIATE_UTM_SOURCE ?? "groundline26";
+  const label = (process.env.NEXT_PUBLIC_BOOKING_LABEL ?? "goalpassport-hotels").trim();
+  const utmSource = process.env.NEXT_PUBLIC_AFFILIATE_UTM_SOURCE ?? "goalpassport";
   const utmMedium = process.env.NEXT_PUBLIC_AFFILIATE_UTM_MEDIUM ?? "affiliate";
   const utmCampaign = opts.utmCampaign ?? "hotel-search";
 

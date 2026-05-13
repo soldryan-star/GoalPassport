@@ -1,7 +1,7 @@
 export const SITE = {
-  name: "Groundline 26",
+  name: "GoalPassport",
   tagline: "Fan travel & matchday intelligence for FIFA World Cup 2026™",
-  url: "https://groundline26.com",
+  url: "https://goalpassport.com",
   disclaimer:
     "FIFA World Cup 2026™ is a trademark of FIFA. This site is an independent fan resource and is not affiliated with FIFA.",
 } as const;

@@ -19,7 +19,7 @@ export const VERTICAL_VIDEOS: VerticalVideo[] = [
   {
     id: "v2",
     title: "Toronto streetcar matchday hack",
-    creator: "@groundline",
+    creator: "@goalpassport",
     views: "890K",
     duration: "0:21",
     accent: "from-cyan-500 to-slate-900",

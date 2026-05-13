@@ -18,7 +18,7 @@ const sans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://groundline26.com"),
+  metadataBase: new URL(SITE.url),
   title: {
     default: `${SITE.name} | FIFA 2026™ Fan Travel & Matchday`,
     template: `%s | ${SITE.name}`,
@@ -43,11 +43,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: SITE.url,
     siteName: SITE.name,
+    title: `${SITE.name} | FIFA 2026™ Fan Travel & Matchday`,
+    description:
+      "Host city guides, matchday playbooks, hotel intel, sports bars, and viral fan content for FIFA World Cup 2026™.",
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE.name,
+    title: `${SITE.name} | FIFA 2026™ Fan Travel & Matchday`,
     description: SITE.tagline,
   },
 };

@@ -16,7 +16,7 @@ export default function BlogPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Editorial</p>
-      <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">The Groundline wire</h1>
+      <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">The GoalPassport wire</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
         SEO-first longform with shareable pull-quotes — structured data ready when you flip the switch in layout.
       </p>

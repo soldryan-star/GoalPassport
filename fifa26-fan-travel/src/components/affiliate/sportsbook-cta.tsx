@@ -9,7 +9,7 @@ import {
 } from "@/lib/affiliate";
 import { RG } from "@/constants/responsible-gambling";
 
-const SESSION_KEY = "groundline26_sportsbook_gate";
+const SESSION_KEY = "goalpassport_sportsbook_gate";
 
 type CountryOption = { code: string; label: string };
 
