@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -23,18 +24,24 @@ export function SiteHeader() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl dark:bg-zinc-950/70">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 text-lg font-black text-zinc-950">
-            G
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950 backdrop-blur-xl dark:bg-zinc-950">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-3">
+        <Link
+          href="/"
+          className="flex min-w-0 shrink items-center rounded-lg outline-offset-2 focus-visible:outline focus-visible:ring-2 focus-visible:ring-emerald-500/60"
+          aria-label="GoalPassport home"
+        >
+          <span className="relative block h-8 w-[min(100%,200px)] sm:h-9 sm:w-[min(100%,260px)] lg:h-10 lg:w-[min(100%,300px)]">
+            <Image
+              src="/goalpassport-wordmark.png"
+              alt="GoalPassport"
+              width={1024}
+              height={341}
+              className="h-full w-full object-contain object-left"
+              sizes="(max-width: 640px) 200px, 300px"
+              priority
+            />
           </span>
-          <div className="leading-tight">
-            <span className="block font-display text-lg tracking-wide text-white">GoalPassport</span>
-            <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500 sm:block">
-              FIFA 2026 fan travel
-            </span>
-          </div>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

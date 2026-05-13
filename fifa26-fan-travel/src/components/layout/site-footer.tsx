@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/data/cities";
 import { NewsletterForm } from "@/components/newsletter-form";
@@ -15,7 +16,16 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-zinc-950 text-zinc-400">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4 sm:px-6">
         <div>
-          <p className="font-display text-xl text-white">{SITE.name}</p>
+          <Link href="/" className="relative mb-4 inline-block h-8 w-48 max-w-full">
+            <Image
+              src="/goalpassport-wordmark.png"
+              alt={SITE.name}
+              width={1024}
+              height={341}
+              className="h-full w-full object-contain object-left"
+              sizes="192px"
+            />
+          </Link>
           <p className="mt-3 text-sm leading-relaxed">{SITE.tagline}</p>
           <p className="mt-4 text-xs leading-relaxed text-zinc-500">{SITE.disclaimer}</p>
         </div>
