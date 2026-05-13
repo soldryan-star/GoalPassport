@@ -7,6 +7,7 @@ import { BlogCard } from "@/components/cards/blog-card";
 import { VerticalVideoCard } from "@/components/cards/vertical-video-card";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 import { CITIES } from "@/data/cities";
 import { MATCH_GUIDES } from "@/data/match-guides";
 import { HOTELS_BY_CATEGORY } from "@/data/hotels";
@@ -61,13 +62,16 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Stays</p>
               <h2 className="mt-2 font-display text-4xl text-white sm:text-5xl">Featured hotels</h2>
-              <p className="mt-2 max-w-xl text-sm text-zinc-400">Placeholder rates — swap in affiliate APIs when partners go live.</p>
+              <p className="mt-2 max-w-xl text-sm text-zinc-400">
+                {`Sample listings and rates for demo — outbound "View deal" links use your partner env configuration.`}
+              </p>
             </div>
             <Link href="/hotels" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300">
               Hotel hub →
             </Link>
           </div>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <AffiliateNotice className="mt-6" />
+          <div className="mt-6 grid gap-5 lg:grid-cols-3">
             {hotels.map((h, i) => (
               <HotelCard key={h.id} hotel={h} index={i} />
             ))}

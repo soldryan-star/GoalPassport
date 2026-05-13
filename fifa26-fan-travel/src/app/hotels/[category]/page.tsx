@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { HOTEL_CATEGORIES, HOTELS_BY_CATEGORY, type HotelCategory } from "@/data/hotels";
 import { HotelCard } from "@/components/cards/hotel-card";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -35,8 +36,9 @@ export default async function HotelCategoryPage({ params }: Props) {
       </Link>
       <h1 className="mt-4 font-display text-5xl text-zinc-900 dark:text-white">{meta.title}</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">{meta.description}</p>
+      <AffiliateNotice className="mt-4 max-w-2xl" />
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {hotels.map((h, i) => (
           <HotelCard key={h.id} hotel={h} index={i} />
         ))}

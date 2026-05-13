@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@/data/cities";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { RG } from "@/constants/responsible-gambling";
 
 const social = [
   { label: "TikTok", href: "https://tiktok.com" },
@@ -62,6 +63,19 @@ export function SiteFooter() {
               </Link>
             </li>
           </ul>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-zinc-500">Responsible gambling</p>
+          <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+            {RG.ageDisclaimerUS} {RG.general}
+          </p>
+          <p className="mt-2 text-xs">
+            <a className="text-emerald-500 hover:underline" href={RG.ncpg.url} target="_blank" rel="noopener noreferrer">
+              {RG.ncpg.label}
+            </a>
+            {" · "}
+            <a className="text-emerald-500 hover:underline" href={`tel:${RG.ncpg.phone.replace(/\D/g, "")}`}>
+              {RG.ncpg.phone}
+            </a>
+          </p>
           <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-zinc-500">Social</p>
           <ul className="mt-3 flex flex-wrap gap-3 text-sm">
             {social.map((s) => (
@@ -78,7 +92,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/5 py-6 text-center text-xs text-zinc-600">
-        © {new Date().getFullYear()} {SITE.name}. Independent fan publication. Sportsbook integrations flagged when live.
+        © {new Date().getFullYear()} {SITE.name}. Independent fan publication. Hotel and sportsbook CTAs are partner-funded where disclosed.
       </div>
     </footer>
   );

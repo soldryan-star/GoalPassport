@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CountdownFifa } from "@/components/home/countdown-fifa";
+import { SportsbookCta } from "@/components/affiliate/sportsbook-cta";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
 export function HomeHero() {
@@ -52,20 +53,7 @@ export function HomeHero() {
               <CountdownFifa />
             </div>
           </GlassPanel>
-          <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10 p-6 text-sm text-zinc-300">
-            <p className="font-display text-lg text-white">Sportsbook zone</p>
-            <p className="mt-2 leading-relaxed">
-              Odds integrations ship post-regulatory clearance. Subscribers get first access to partner boosts + same-game parlay
-              tutorials.
-            </p>
-            <button
-              type="button"
-              className="mt-4 rounded-lg border border-white/10 bg-black/30 px-4 py-2 text-xs font-bold uppercase tracking-wider text-zinc-400"
-              disabled
-            >
-              Coming soon
-            </button>
-          </div>
+          <SportsbookCta />
         </div>
       </div>
     </section>

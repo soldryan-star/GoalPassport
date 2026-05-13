@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HOTEL_CATEGORIES } from "@/data/hotels";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
 export const metadata: Metadata = {
   title: "Hotels & Stays",
@@ -14,9 +15,10 @@ export default function HotelsHubPage() {
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Stays</p>
       <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">Hotel intelligence hub</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
-        SEO-first layouts with ratings, perks, and affiliate-ready CTAs. Swap in partner feeds when contracts clear.
+        SEO-first layouts with ratings, perks, and partner-ready CTAs. Wire real partner feeds or APIs when contracts clear.
       </p>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      <AffiliateNotice className="mt-6 max-w-2xl" />
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {HOTEL_CATEGORIES.map((c) => (
           <Link key={c.slug} href={`/hotels/${c.slug}`}>
             <GlassPanel className="h-full transition hover:border-emerald-500/40">

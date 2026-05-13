@@ -1,10 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import type { HotelListing } from "@/data/hotels";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { buildHotelSearchAffiliateUrl } from "@/lib/affiliate";
 
 export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: number }) {
+  const partnerUrl = buildHotelSearchAffiliateUrl({
+    city: hotel.city,
+    listingId: hotel.id,
+    utmCampaign: `hotel-${hotel.id}`,
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -33,12 +41,23 @@ export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: n
             </li>
           ))}
         </ul>
-        <a
-          href="#"
-          className="mt-auto inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold text-zinc-950 transition hover:opacity-90"
-        >
-          View deal — affiliate
-        </a>
+        {partnerUrl ? (
+          <a
+            href={partnerUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            className="mt-auto inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold text-zinc-950 transition hover:opacity-90"
+          >
+            View deal — partner site
+          </a>
+        ) : (
+          <Link
+            href="/hotels"
+            className="mt-auto inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Browse hotel hub (add partner ID in .env)
+          </Link>
+        )}
       </GlassPanel>
     </motion.div>
   );
