@@ -16,6 +16,7 @@ const nav = [
   { href: "/sports-bars", label: "Sports Bars" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {

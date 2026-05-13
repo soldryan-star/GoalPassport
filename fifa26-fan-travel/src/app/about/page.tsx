@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
@@ -27,10 +28,15 @@ export default function AboutPage() {
       <section id="contact" className="mt-12">
         <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Contact</h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Partnerships:{" "}
+          For partnerships, press, and reader enquiries, visit our{" "}
+          <Link className="font-medium text-emerald-600 underline hover:no-underline dark:text-emerald-400" href="/contact">
+            contact page
+          </Link>{" "}
+          or write to{" "}
           <a className="text-emerald-600 underline dark:text-emerald-400" href="mailto:hello@goalpassport.com">
             hello@goalpassport.com
           </a>
+          .
         </p>
       </section>
       <section className="mt-12">

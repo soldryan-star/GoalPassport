@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -15,7 +16,13 @@ export default function PrivacyPage() {
           Data may be processed by Supabase and hosting providers in line with their policies.
         </p>
         <p>You may unsubscribe from marketing emails at any time via the link in each message.</p>
-        <p>For requests regarding your data, contact hello@goalpassport.com.</p>
+        <p>
+          For requests regarding your data, contact hello@goalpassport.com. See also our{" "}
+          <Link className="font-medium text-emerald-600 underline hover:no-underline dark:text-emerald-400" href="/legal/terms">
+            Terms of Service
+          </Link>
+          .
+        </p>
 
         <h2 className="pt-6 font-display text-2xl text-zinc-900 dark:text-white">Affiliate and partner links</h2>
         <p>

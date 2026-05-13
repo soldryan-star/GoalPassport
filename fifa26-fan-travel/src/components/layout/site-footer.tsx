@@ -63,12 +63,17 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/legal/terms" className="hover:text-white">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
               <Link href="/legal/affiliate-disclosure" className="hover:text-white">
                 Affiliate disclosure
               </Link>
             </li>
             <li>
-              <Link href="/about#contact" className="hover:text-white">
+              <Link href="/contact" className="hover:text-white">
                 Contact
               </Link>
             </li>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Affiliate Disclosure",
@@ -56,6 +57,17 @@ export default function AffiliateDisclosurePage() {
           <li>Privacy policy updated to list affiliate partners and data flows.</li>
           <li>Advertising platform policies (Google, Meta, etc.) if you run paid gambling campaigns.</li>
         </ol>
+        <p className="pt-6 text-sm">
+          Reader-facing use of the Site is governed by our{" "}
+          <Link className="font-medium text-emerald-600 underline hover:no-underline dark:text-emerald-400" href="/legal/terms">
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link className="font-medium text-emerald-600 underline hover:no-underline dark:text-emerald-400" href="/legal/privacy">
+            Privacy Policy
+          </Link>
+          .
+        </p>
       </div>
     </div>
   );
