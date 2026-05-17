@@ -14,11 +14,22 @@ import { CityLandmarkBackdrop } from "@/components/city/city-landmark-backdrop";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { TORONTO_GUIDE_LINKS } from "@/data/toronto-guides";
 import { TORONTO_SAFETY_GUIDE_LINKS } from "@/data/toronto-safety-guides";
+import { VANCOUVER_AREA_GUIDE_LINKS } from "@/data/vancouver/area-guides";
+import { VANCOUVER_SAFETY_GUIDE_LINKS } from "@/data/vancouver/safety-guides";
+import { VANCOUVER_TRANSPORT_GUIDE_LINKS } from "@/data/vancouver/transport-guides";
+import { GuideHubSection } from "@/components/layout/guide-hub-section";
 import {
   linkBmoFieldInText,
   TorontoGuideLink,
   torontoAreasToStayContent,
 } from "@/lib/toronto-guide-links";
+import {
+  linkBcPlaceInText,
+  VancouverGuideLink,
+  vancouverAreasToStayContent,
+  vancouverSafetyTipsContent,
+  vancouverTransportationContent,
+} from "@/lib/vancouver-guide-links";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -52,7 +63,15 @@ function BulletList({ title, items }: { title: string; items: ReactNode[] }) {
   );
 }
 
-function BarList({ city, linkBmoField = false }: { city: CityGuide; linkBmoField?: boolean }) {
+function BarList({
+  city,
+  linkBmoField = false,
+  linkBcPlace = false,
+}: {
+  city: CityGuide;
+  linkBmoField?: boolean;
+  linkBcPlace?: boolean;
+}) {
   return (
     <GlassPanel>
       <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Sports bars</h2>
@@ -61,7 +80,11 @@ function BarList({ city, linkBmoField = false }: { city: CityGuide; linkBmoField
           <li key={b.name} className="border-b border-zinc-200 pb-4 last:border-0 dark:border-white/10">
             <p className="font-semibold text-zinc-900 dark:text-white">{b.name}</p>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              {linkBmoField ? linkBmoFieldInText(b.vibe) : b.vibe}
+              {linkBmoField
+                ? linkBmoFieldInText(b.vibe)
+                : linkBcPlace
+                  ? linkBcPlaceInText(b.vibe)
+                  : b.vibe}
             </p>
           </li>
         ))}
@@ -109,10 +132,20 @@ export default async function CityPage({ params }: Props) {
   const hostSlug = city.slug as HostCitySlug;
   const hasExpediaPicks = cityHasExpediaPicks(hostSlug);
   const isToronto = hostSlug === "toronto";
-  const areasToStayItems = isToronto ? torontoAreasToStayContent() : city.areasToStay;
-  const transportationItems = isToronto
+  const isVancouver = hostSlug === "vancouver";
+  const areasToStayItems: ReactNode[] = isToronto
+    ? torontoAreasToStayContent()
+    : isVancouver
+      ? vancouverAreasToStayContent()
+      : city.areasToStay;
+  const safetyTipsItems: ReactNode[] = isVancouver
+    ? vancouverSafetyTipsContent()
+    : city.safetyTips;
+  const transportationItems: ReactNode[] = isToronto
     ? city.transportation.map((tip) => linkBmoFieldInText(tip))
-    : city.transportation;
+    : isVancouver
+      ? vancouverTransportationContent()
+      : city.transportation;
 
   return (
     <article>
@@ -140,6 +173,13 @@ export default async function CityPage({ params }: Props) {
                 >
                   {city.stadium}
                 </TorontoGuideLink>
+              ) : isVancouver ? (
+                <VancouverGuideLink
+                  href="/guides/vancouver/bc-place"
+                  className="text-cyan-300 hover:text-cyan-200"
+                >
+                  {city.stadium}
+                </VancouverGuideLink>
               ) : (
                 city.stadium
               )}
@@ -156,7 +196,7 @@ export default async function CityPage({ params }: Props) {
       <div className="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-2">
           <BulletList title="Best areas to stay" items={areasToStayItems} />
-          <BulletList title="Safety tips" items={city.safetyTips} />
+          <BulletList title="Safety tips" items={safetyTipsItems} />
         </div>
         {isToronto ? (
           <GlassPanel>
@@ -178,6 +218,13 @@ export default async function CityPage({ params }: Props) {
             </ul>
           </GlassPanel>
         ) : null}
+        {isVancouver ? (
+          <GuideHubSection
+            title="Vancouver safety guides"
+            subtitle="Helpful safety resources for FIFA 2026™ fans visiting Vancouver."
+            links={VANCOUVER_SAFETY_GUIDE_LINKS}
+          />
+        ) : null}
         {isToronto ? (
           <GlassPanel>
             <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Toronto neighbourhood guides</h2>
@@ -198,9 +245,23 @@ export default async function CityPage({ params }: Props) {
             </ul>
           </GlassPanel>
         ) : null}
+        {isVancouver ? (
+          <GuideHubSection
+            title="Vancouver neighbourhood guides"
+            subtitle="Deep dives for FIFA 2026™ fans — hotels, transit, and matchday tips by area."
+            links={VANCOUVER_AREA_GUIDE_LINKS}
+          />
+        ) : null}
         <BulletList title="Transportation" items={transportationItems} />
+        {isVancouver ? (
+          <GuideHubSection
+            title="Vancouver transportation guides"
+            subtitle="SkyTrain, YVR, Aquabus, and BC Place matchday routing for FIFA 2026™ fans."
+            links={VANCOUVER_TRANSPORT_GUIDE_LINKS}
+          />
+        ) : null}
         <div className="grid gap-8 lg:grid-cols-2">
-          <BarList city={city} linkBmoField={isToronto} />
+          <BarList city={city} linkBmoField={isToronto} linkBcPlace={isVancouver} />
           <BulletList title="Nightlife" items={city.nightlife} />
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
