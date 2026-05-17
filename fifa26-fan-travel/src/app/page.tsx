@@ -34,19 +34,26 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-white/10">
-        {/* Aerial stadium hero image */}
+        {/* Luxury stadium packed with 80k fans under blazing floodlights */}
         <Image
-          src="https://images.unsplash.com/photo-1556962021-9d0303621643?w=1800&q=80&auto=format&fit=crop"
-          alt="Aerial view of a packed soccer stadium with a vivid green pitch"
+          src="/hero-stadium-crowd.png"
+          alt="World-class football stadium packed with fans under dramatic floodlights at night"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-top"
         />
-        {/* Dark scrim so text stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
-        {/* Subtle emerald tint */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.30),transparent)]" aria-hidden />
+        {/* ── Premium overlay stack ─────────────────────────────── */}
+        {/* 1. Base scrim — heavy at bottom for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/45 to-black/93" aria-hidden />
+        {/* 2. Left-panel darkener — deep shadow behind headline & buttons */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/30 to-transparent" aria-hidden />
+        {/* 3. Emerald brand bloom — teal glow from top-center */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_-5%,rgba(16,185,129,0.18),transparent)]" aria-hidden />
+        {/* 4. Cinematic edge vignette */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_82%_75%_at_50%_50%,transparent,rgba(0,0,0,0.58))]" aria-hidden />
+        {/* 5. Pitch emerald bloom — subtle green from the lit field */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_58%_52%,rgba(16,185,129,0.10),transparent)]" aria-hidden />
         <PlaneRouteAnimation />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-400">
