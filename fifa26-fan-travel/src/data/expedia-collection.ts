@@ -44,9 +44,15 @@ export const EXPEDIA_CITY_PRIMARY_URL: Partial<Record<HostCitySlug, string>> = {
   boston:
     "https://www.expedia.ca/Foxboro-Hotels-Renaissance-By-Marriott-Boston-Patriot-Place-Hotel.h2571800.Hotel-Information",
   guadalajara:
-    "https://www.expedia.ca/Guadalajara-Hotels-The-Westin-Guadalajara.h23207604.Hotel-Information",
+    "https://www.expedia.ca/Guadalajara-Hotels-NH-Collection-Guadalajara-Providencia.h2665133.Hotel-Information",
   monterrey:
     "https://www.expedia.ca/Monterrey-Hotels-Live-Aqua-Urban-Resort-Monterrey.h12946714.Hotel-Information",
+  houston:
+    "https://www.expedia.ca/Houston-Hotels-Hilton-Houston-Plaza-Medical-Center.h25188.Hotel-Information",
+  "kansas-city":
+    "https://www.expedia.ca/Kansas-City-Hotels-Loews-Kansas-City-Hotel.h37225812.Hotel-Information",
+  philadelphia:
+    "https://www.expedia.ca/Philadelphia-Hotels-Courtyard-Philadelphia-South-At-The-Navy-Yard.h6802037.Hotel-Information",
 };
 
 function primaryUrl(slug: HostCitySlug): string | undefined {
@@ -131,7 +137,6 @@ const EXPEDIA_HOTELS_BY_CITY: Partial<Record<HostCitySlug, readonly ExpediaCityH
     },
   ],
   guadalajara: [
-    { hotelName: "The Westin Guadalajara" },
     {
       hotelName: "Hilton Guadalajara Midtown",
       url: "https://www.expedia.ca/Guadalajara-Hotels-Hilton-Guadalajara-Midtown.h64985206.Hotel-Information",
@@ -139,6 +144,39 @@ const EXPEDIA_HOTELS_BY_CITY: Partial<Record<HostCitySlug, readonly ExpediaCityH
     {
       hotelName: "NH Collection Guadalajara Providencia",
       url: "https://www.expedia.ca/Guadalajara-Hotels-NH-Collection-Guadalajara-Providencia.h2665133.Hotel-Information",
+    },
+    {
+      hotelName: "Holiday Inn Hotel & Suites Guadalajara Centro Historico",
+      url: "https://www.expedia.ca/Guadalajara-Hotels-Holiday-Inn-Hotel-Suites-Guadalajara-Centro-Historico.h84127.Hotel-Information",
+    },
+  ],
+  houston: [
+    { hotelName: "Hilton Houston Plaza Medical Center" },
+    {
+      hotelName: "Marriott Marquis Houston",
+      url: "https://www.expedia.ca/Houston-Hotels-Marriott-Marquis-Houston.h14986044.Hotel-Information",
+    },
+    {
+      hotelName: "Hotel ZaZa Museum District",
+      url: "https://www.expedia.ca/Houston-Hotels-Hotel-Zaza-Houston-Museum-District.h3306.Hotel-Information",
+    },
+  ],
+  "kansas-city": [
+    { hotelName: "Loews Kansas City Hotel" },
+    {
+      hotelName: "Hotel Indigo Kansas City The Crossroads",
+      url: "https://www.expedia.ca/Kansas-City-Hotels-Hotel-Indigo-Kansas-City-The-Crossroads.h25806115.Hotel-Information",
+    },
+  ],
+  philadelphia: [
+    { hotelName: "Courtyard Philadelphia South at The Navy Yard" },
+    {
+      hotelName: "Live! Casino & Hotel Philadelphia",
+      url: "https://www.expedia.ca/Philadelphia-Hotels-Live-Casino-Hotel-Philadelphia.h59917783.Hotel-Information",
+    },
+    {
+      hotelName: "The Notary Hotel, Autograph Collection",
+      url: "https://www.expedia.ca/Philadelphia-Hotels-The-Notary-Hotel.h431312.Hotel-Information",
     },
   ],
   monterrey: [
