@@ -9,6 +9,7 @@ import {
 } from "@/data/expedia-collection";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 import { ExpediaCta } from "@/components/affiliate/expedia-cta";
+import { CityLandmarkBackdrop } from "@/components/city/city-landmark-backdrop";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -100,22 +101,29 @@ export default async function CityPage({ params }: Props) {
 
   return (
     <article>
-      <header className={`relative overflow-hidden border-b border-zinc-200 dark:border-white/10`}>
-        <div className={`absolute inset-0 bg-gradient-to-br opacity-90 ${city.accent}`} />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
-          <Link href="/cities" className="text-xs font-semibold uppercase tracking-wider text-white/80 hover:text-white">
-            ← Cities
-          </Link>
-          <p className="mt-4 text-xs font-bold uppercase tracking-[0.3em] text-white/70">{city.country}</p>
-          <h1 className="mt-2 font-display text-5xl text-white sm:text-6xl">{city.name}</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/90">{city.tagline}</p>
-          <p className="mt-4 text-sm font-medium text-white/80">Stadium focus: {city.stadium}</p>
-          {!city.fullGuide && city.teaser && (
-            <p className="mt-6 max-w-xl rounded-xl border border-white/20 bg-black/30 p-4 text-sm text-white/90 backdrop-blur">
-              {city.teaser}
-            </p>
-          )}
-        </div>
+      <header className="border-b border-zinc-200 dark:border-white/10">
+        <CityLandmarkBackdrop
+          slug={hostSlug}
+          accent={city.accent}
+          className="min-h-[280px] sm:min-h-[320px]"
+          sizes="100vw"
+          priority
+        >
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+            <Link href="/cities" className="text-xs font-semibold uppercase tracking-wider text-white/80 hover:text-white">
+              ← Cities
+            </Link>
+            <p className="mt-4 text-xs font-bold uppercase tracking-[0.3em] text-white/70">{city.country}</p>
+            <h1 className="mt-2 font-display text-5xl text-white sm:text-6xl">{city.name}</h1>
+            <p className="mt-4 max-w-2xl text-lg text-white/90">{city.tagline}</p>
+            <p className="mt-4 text-sm font-medium text-white/80">Stadium focus: {city.stadium}</p>
+            {!city.fullGuide && city.teaser && (
+              <p className="mt-6 max-w-xl rounded-xl border border-white/20 bg-black/30 p-4 text-sm text-white/90 backdrop-blur">
+                {city.teaser}
+              </p>
+            )}
+          </div>
+        </CityLandmarkBackdrop>
       </header>
 
       <div className="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:px-6">
