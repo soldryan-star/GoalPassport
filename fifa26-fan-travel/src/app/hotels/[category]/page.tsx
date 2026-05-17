@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HOTEL_CATEGORIES, HOTELS_BY_CATEGORY, type HotelCategory } from "@/data/hotels";
 import { HotelCard } from "@/components/cards/hotel-card";
+import { CAESARS_LAS_VEGAS_AWIN_URL } from "@/lib/affiliate";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
@@ -40,7 +41,12 @@ export default async function HotelCategoryPage({ params }: Props) {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {hotels.map((h, i) => (
-          <HotelCard key={h.id} hotel={h} index={i} />
+          <HotelCard
+            key={h.id}
+            hotel={h}
+            index={i}
+            ctaHref={cat === "near-stadium" ? CAESARS_LAS_VEGAS_AWIN_URL : undefined}
+          />
         ))}
       </div>
 

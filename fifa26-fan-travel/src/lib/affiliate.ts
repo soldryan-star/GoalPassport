@@ -1,3 +1,7 @@
+/** AWIN deep link — Caesars Paris Las Vegas (near-stadium hotel cards). */
+export const CAESARS_LAS_VEGAS_AWIN_URL =
+  "https://www.awin1.com/cread.php?awinmid=6145&awinaffid=2892109&ued=https%3A%2F%2Fwww.caesars.com%2Fparis-las-vegas";
+
 /**
  * Hotel affiliate outbound URLs. Not legal advice — align link format with your partner contract.
  *

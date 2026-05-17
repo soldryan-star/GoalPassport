@@ -6,7 +6,7 @@ import type { HotelListing } from "@/data/hotels";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { buildHotelSearchOutbound } from "@/lib/affiliate";
 
-const HOTEL_CARD_CTA = ["View hotel deals", "Check availability", "See hotel offers", "Explore stays"] as const;
+const HOTEL_CARD_CTA = ["View Hotel Deals", "Check Availability", "See Hotel Offers"] as const;
 
 function hotelCardCtaLabel(i: number): string {
   return HOTEL_CARD_CTA[i % HOTEL_CARD_CTA.length];
@@ -23,13 +23,24 @@ function nightlyRateCaption(i: number, priceFrom: string): string {
   }
 }
 
-export function HotelCard({ hotel, index = 0 }: { hotel: HotelListing; index?: number }) {
-  const { url: outboundUrl, monetized } = buildHotelSearchOutbound({
+export function HotelCard({
+  hotel,
+  index = 0,
+  ctaHref,
+}: {
+  hotel: HotelListing;
+  index?: number;
+  /** When set, overrides the default hotel search affiliate URL (e.g. near-stadium AWIN link). */
+  ctaHref?: string;
+}) {
+  const built = buildHotelSearchOutbound({
     city: hotel.city,
     listingId: hotel.id,
     utmCampaign: `hotel-${hotel.id}`,
   });
-  const outboundRel = monetized ? "sponsored noopener noreferrer" : "noopener noreferrer";
+  const outboundUrl = ctaHref ?? built.url;
+  const monetized = Boolean(ctaHref) || built.monetized;
+  const outboundRel = monetized ? "noopener noreferrer sponsored" : "noopener noreferrer";
 
   return (
     <motion.div
