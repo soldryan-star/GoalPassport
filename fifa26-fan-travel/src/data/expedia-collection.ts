@@ -41,6 +41,12 @@ export const EXPEDIA_CITY_PRIMARY_URL: Partial<Record<HostCitySlug, string>> = {
     "https://www.expedia.ca/New-York-Hotels-Arlo-Midtown.h48669360.Hotel-Information",
   seattle:
     "https://www.expedia.ca/Seattle-Hotels-Sheraton-Seattle-Hotel.h25290.Hotel-Information",
+  boston:
+    "https://www.expedia.ca/Foxboro-Hotels-Renaissance-By-Marriott-Boston-Patriot-Place-Hotel.h2571800.Hotel-Information",
+  guadalajara:
+    "https://www.expedia.ca/Guadalajara-Hotels-The-Westin-Guadalajara.h23207604.Hotel-Information",
+  monterrey:
+    "https://www.expedia.ca/Monterrey-Hotels-Live-Aqua-Urban-Resort-Monterrey.h12946714.Hotel-Information",
 };
 
 function primaryUrl(slug: HostCitySlug): string | undefined {
@@ -112,6 +118,36 @@ const EXPEDIA_HOTELS_BY_CITY: Partial<Record<HostCitySlug, readonly ExpediaCityH
     { hotelName: "Bisha, a Luxury Collection Hotel Toronto" },
     { hotelName: "Delta Hotels by Marriott Toronto" },
     { hotelName: "Fairmont Royal York" },
+  ],
+  boston: [
+    { hotelName: "Renaissance Boston Patriot Place Hotel" },
+    {
+      hotelName: "Omni Boston Hotel at the Seaport",
+      url: "https://www.expedia.ca/Boston-Hotels-Omni-Boston-Hotel-At-The-Seaport.h68014393.Hotel-Information",
+    },
+    {
+      hotelName: "Hilton Garden Inn Foxborough",
+      url: "https://www.expedia.ca/Foxboro-Hotels-Hilton-Garden-Inn-Foxborough-Patriot-Place.h16103225.Hotel-Information",
+    },
+  ],
+  guadalajara: [
+    { hotelName: "The Westin Guadalajara" },
+    {
+      hotelName: "Hilton Guadalajara Midtown",
+      url: "https://www.expedia.ca/Guadalajara-Hotels-Hilton-Guadalajara-Midtown.h64985206.Hotel-Information",
+    },
+    {
+      hotelName: "NH Collection Guadalajara Providencia",
+      url: "https://www.expedia.ca/Guadalajara-Hotels-NH-Collection-Guadalajara-Providencia.h2665133.Hotel-Information",
+    },
+  ],
+  monterrey: [
+    { hotelName: "Live Aqua Urban Resort Monterrey" },
+    {
+      hotelName: "Crowne Plaza Monterrey",
+      url: "https://www.expedia.ca/Monterrey-Hotels-Crowne-Plaza-Monterrey.h9975.Hotel-Information",
+    },
+    { hotelName: "Safie Hotel & Suites" },
   ],
 };
 
