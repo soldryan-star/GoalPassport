@@ -4,7 +4,7 @@ export const CAESARS_LAS_VEGAS_AWIN_URL =
 
 /** Expedia Travel Shop — FIFA World Cup 2026 hotel collection (homepage FIFA Hotels section). */
 export const EXPEDIA_TRAVEL_SHOP_URL =
-  "https://www.expedia.ca/shop/goalpassport/collection/best-fifa-world-cup-2026-hotels";
+  "https://www.expedia.ca/shop/goalpassport/best-fifa-world-cup-2026-hotels";
 
 /** Optional override via `NEXT_PUBLIC_EXPEDIA_TRAVEL_SHOP_URL` */
 export function getExpediaTravelShopOutbound(): { url: string; monetized: boolean } {
