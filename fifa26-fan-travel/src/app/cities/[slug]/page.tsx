@@ -13,6 +13,7 @@ import { ExpediaCta } from "@/components/affiliate/expedia-cta";
 import { CityLandmarkBackdrop } from "@/components/city/city-landmark-backdrop";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { TORONTO_GUIDE_LINKS } from "@/data/toronto-guides";
+import { TORONTO_SAFETY_GUIDE_LINKS } from "@/data/toronto-safety-guides";
 import {
   linkBmoFieldInText,
   TorontoGuideLink,
@@ -157,6 +158,26 @@ export default async function CityPage({ params }: Props) {
           <BulletList title="Best areas to stay" items={areasToStayItems} />
           <BulletList title="Safety tips" items={city.safetyTips} />
         </div>
+        {isToronto ? (
+          <GlassPanel>
+            <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Toronto safety guides</h2>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Helpful safety resources for FIFA 2026™ fans visiting Toronto.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-3">
+              {TORONTO_SAFETY_GUIDE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-cyan-600 transition hover:border-emerald-500/50 hover:bg-emerald-500/15 dark:text-cyan-400"
+                  >
+                    {link.label} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </GlassPanel>
+        ) : null}
         {isToronto ? (
           <GlassPanel>
             <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Toronto neighbourhood guides</h2>
