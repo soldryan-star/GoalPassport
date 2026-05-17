@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { BackButton } from "@/components/layout/back-button";
 import { SITE } from "@/data/cities";
 
 const display = Bebas_Neue({
@@ -67,6 +68,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex min-h-screen flex-col bg-[var(--background)] text-[var(--foreground)] transition-colors">
             <SiteHeader />
+            <BackButton />
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
