@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCity, getCitySlugs, type CityGuide, type HostCitySlug } from "@/data/cities";
@@ -11,6 +12,12 @@ import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 import { ExpediaCta } from "@/components/affiliate/expedia-cta";
 import { CityLandmarkBackdrop } from "@/components/city/city-landmark-backdrop";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { TORONTO_GUIDE_LINKS } from "@/data/toronto-guides";
+import {
+  linkBmoFieldInText,
+  TorontoGuideLink,
+  torontoAreasToStayContent,
+} from "@/lib/toronto-guide-links";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,13 +35,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function BulletList({ title, items }: { title: string; items: string[] }) {
+function BulletList({ title, items }: { title: string; items: ReactNode[] }) {
   return (
     <GlassPanel>
       <h2 className="font-display text-2xl text-zinc-900 dark:text-white">{title}</h2>
       <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
-        {items.map((item) => (
-          <li key={item.slice(0, 40)} className="flex gap-2">
+        {items.map((item, i) => (
+          <li key={i} className="flex gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
             <span>{item}</span>
           </li>
@@ -44,7 +51,7 @@ function BulletList({ title, items }: { title: string; items: string[] }) {
   );
 }
 
-function BarList({ city }: { city: CityGuide }) {
+function BarList({ city, linkBmoField = false }: { city: CityGuide; linkBmoField?: boolean }) {
   return (
     <GlassPanel>
       <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Sports bars</h2>
@@ -52,7 +59,9 @@ function BarList({ city }: { city: CityGuide }) {
         {city.sportsBars.map((b) => (
           <li key={b.name} className="border-b border-zinc-200 pb-4 last:border-0 dark:border-white/10">
             <p className="font-semibold text-zinc-900 dark:text-white">{b.name}</p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">{b.vibe}</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              {linkBmoField ? linkBmoFieldInText(b.vibe) : b.vibe}
+            </p>
           </li>
         ))}
       </ul>
@@ -98,6 +107,11 @@ export default async function CityPage({ params }: Props) {
 
   const hostSlug = city.slug as HostCitySlug;
   const hasExpediaPicks = cityHasExpediaPicks(hostSlug);
+  const isToronto = hostSlug === "toronto";
+  const areasToStayItems = isToronto ? torontoAreasToStayContent() : city.areasToStay;
+  const transportationItems = isToronto
+    ? city.transportation.map((tip) => linkBmoFieldInText(tip))
+    : city.transportation;
 
   return (
     <article>
@@ -116,7 +130,19 @@ export default async function CityPage({ params }: Props) {
             <p className="mt-4 text-xs font-bold uppercase tracking-[0.3em] text-white/70">{city.country}</p>
             <h1 className="mt-2 font-display text-5xl text-white sm:text-6xl">{city.name}</h1>
             <p className="mt-4 max-w-2xl text-lg text-white/90">{city.tagline}</p>
-            <p className="mt-4 text-sm font-medium text-white/80">Stadium focus: {city.stadium}</p>
+            <p className="mt-4 text-sm font-medium text-white/80">
+              Stadium focus:{" "}
+              {isToronto ? (
+                <TorontoGuideLink
+                  href="/guides/toronto/bmo-field"
+                  className="text-cyan-300 hover:text-cyan-200"
+                >
+                  {city.stadium}
+                </TorontoGuideLink>
+              ) : (
+                city.stadium
+              )}
+            </p>
             {!city.fullGuide && city.teaser && (
               <p className="mt-6 max-w-xl rounded-xl border border-white/20 bg-black/30 p-4 text-sm text-white/90 backdrop-blur">
                 {city.teaser}
@@ -128,12 +154,32 @@ export default async function CityPage({ params }: Props) {
 
       <div className="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-2">
-          <BulletList title="Best areas to stay" items={city.areasToStay} />
+          <BulletList title="Best areas to stay" items={areasToStayItems} />
           <BulletList title="Safety tips" items={city.safetyTips} />
         </div>
-        <BulletList title="Transportation" items={city.transportation} />
+        {isToronto ? (
+          <GlassPanel>
+            <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Toronto neighbourhood guides</h2>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Deep dives for FIFA 2026™ fans — hotels, transit, and matchday tips by area.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-3">
+              {TORONTO_GUIDE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-cyan-600 transition hover:border-emerald-500/50 hover:bg-emerald-500/15 dark:text-cyan-400"
+                  >
+                    {link.label} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </GlassPanel>
+        ) : null}
+        <BulletList title="Transportation" items={transportationItems} />
         <div className="grid gap-8 lg:grid-cols-2">
-          <BarList city={city} />
+          <BarList city={city} linkBmoField={isToronto} />
           <BulletList title="Nightlife" items={city.nightlife} />
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
