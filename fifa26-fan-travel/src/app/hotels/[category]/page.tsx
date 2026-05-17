@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HOTEL_CATEGORIES, HOTELS_BY_CATEGORY, type HotelCategory } from "@/data/hotels";
 import { HotelCard } from "@/components/cards/hotel-card";
-import { CAESARS_LAS_VEGAS_AWIN_URL } from "@/lib/affiliate";
+import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
@@ -29,6 +29,7 @@ export default async function HotelCategoryPage({ params }: Props) {
   const cat = category as HotelCategory;
   const meta = HOTEL_CATEGORIES.find((c) => c.slug === cat)!;
   const hotels = HOTELS_BY_CATEGORY[cat];
+  const { url: expediaUrl, monetized } = getExpediaTravelShopOutbound();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
@@ -38,15 +39,18 @@ export default async function HotelCategoryPage({ params }: Props) {
       <h1 className="mt-4 font-display text-5xl text-zinc-900 dark:text-white">{meta.title}</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">{meta.description}</p>
       <AffiliateNotice className="mt-4 max-w-2xl" />
+      <a
+        href={expediaUrl}
+        target="_blank"
+        rel={monetized ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-900/25 transition hover:brightness-110"
+      >
+        View FIFA Hotel Collection on Expedia
+      </a>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {hotels.map((h, i) => (
-          <HotelCard
-            key={h.id}
-            hotel={h}
-            index={i}
-            ctaHref={cat === "near-stadium" ? CAESARS_LAS_VEGAS_AWIN_URL : undefined}
-          />
+          <HotelCard key={h.id} hotel={h} index={i} />
         ))}
       </div>
 

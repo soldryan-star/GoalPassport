@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { HotelListing } from "@/data/hotels";
 import { GlassPanel } from "@/components/ui/glass-panel";
-import { buildHotelSearchOutbound } from "@/lib/affiliate";
+import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 
 const HOTEL_CARD_CTA = ["View Hotel Deals", "Check Availability", "See Hotel Offers"] as const;
 
@@ -30,16 +30,12 @@ export function HotelCard({
 }: {
   hotel: HotelListing;
   index?: number;
-  /** When set, overrides the default hotel search affiliate URL (e.g. near-stadium AWIN link). */
+  /** When set, overrides the default Expedia Travel Shop URL. */
   ctaHref?: string;
 }) {
-  const built = buildHotelSearchOutbound({
-    city: hotel.city,
-    listingId: hotel.id,
-    utmCampaign: `hotel-${hotel.id}`,
-  });
-  const outboundUrl = ctaHref ?? built.url;
-  const monetized = Boolean(ctaHref) || built.monetized;
+  const expedia = getExpediaTravelShopOutbound();
+  const outboundUrl = ctaHref ?? expedia.url;
+  const monetized = ctaHref ? true : expedia.monetized;
   const outboundRel = monetized ? "noopener noreferrer sponsored" : "noopener noreferrer";
 
   return (
