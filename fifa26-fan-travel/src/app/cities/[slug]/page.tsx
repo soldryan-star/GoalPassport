@@ -5,8 +5,8 @@ import { getCity, getCitySlugs, type CityGuide, type HostCitySlug } from "@/data
 import {
   cityHasExpediaPicks,
   getExpediaHotelsForCity,
+  getHotelOutboundUrl,
 } from "@/data/expedia-collection";
-import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 import { ExpediaCta } from "@/components/affiliate/expedia-cta";
 import { GlassPanel } from "@/components/ui/glass-panel";
@@ -63,26 +63,24 @@ function ExpediaFeaturedHotels({ slug, cityName }: { slug: HostCitySlug; cityNam
   const hotels = getExpediaHotelsForCity(slug);
   if (hotels.length === 0) return null;
 
-  const { url, monetized } = getExpediaTravelShopOutbound();
-
   return (
     <GlassPanel>
       <h2 className="font-display text-2xl text-zinc-900 dark:text-white">
         Featured FIFA 2026 hotel picks in {cityName}
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Curated from our Expedia Travel Shop collection — same shop, city-matched names.
+        Curated from our Expedia Travel Shop collection — each link opens that property on Expedia.
       </p>
       <ul className="mt-4 space-y-3">
-        {hotels.map((hotelName) => (
-          <li key={hotelName}>
+        {hotels.map((hotel) => (
+          <li key={hotel.hotelName}>
             <a
-              href={url}
+              href={getHotelOutboundUrl(slug, hotel)}
               target="_blank"
-              rel={monetized ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+              rel="noopener noreferrer sponsored"
               className="text-sm font-medium text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
             >
-              {hotelName} →
+              {hotel.hotelName} →
             </a>
           </li>
         ))}
@@ -147,7 +145,7 @@ export default async function CityPage({ params }: Props) {
             Shop FIFA World Cup 2026™ stays in our Expedia Travel Shop — commission-supported links help keep
             GoalPassport free for fans.
           </p>
-          <ExpediaCta label="Book hotel deals on Expedia" className="mt-6" />
+          <ExpediaCta label="Book hotel deals on Expedia" className="mt-6" citySlug={hostSlug} />
           <Link
             href="/hotels"
             className="mt-4 inline-block text-sm font-semibold text-emerald-600 hover:underline dark:text-emerald-400"

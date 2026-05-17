@@ -1,3 +1,5 @@
+import type { HostCitySlug } from "@/data/cities";
+import { getExpediaCityHotelOutbound } from "@/data/expedia-collection";
 import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 import { cn } from "@/lib/utils";
 
@@ -15,13 +17,17 @@ export function ExpediaCta({
   variant = "primary",
   className,
   href,
+  citySlug,
 }: {
   label?: string;
   variant?: keyof typeof variants;
   className?: string;
   href?: string;
+  citySlug?: HostCitySlug;
 }) {
-  const { url, monetized } = getExpediaTravelShopOutbound();
+  const { url, monetized } = citySlug
+    ? getExpediaCityHotelOutbound(citySlug)
+    : getExpediaTravelShopOutbound();
   const outbound = href ?? url;
 
   return (

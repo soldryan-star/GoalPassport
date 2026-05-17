@@ -28,7 +28,12 @@ export function CityCard({ city, index = 0 }: { city: CityGuide; index?: number 
           </div>
         </Link>
         <div className="p-4 pt-0">
-          <ExpediaCta label="Book hotel deals" variant="compact" className="w-full" />
+          <ExpediaCta
+            label="Book hotel deals"
+            variant="compact"
+            className="w-full"
+            citySlug={city.slug}
+          />
         </div>
       </GlassPanel>
     </motion.div>
