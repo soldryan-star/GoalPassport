@@ -2,6 +2,16 @@
 export const CAESARS_LAS_VEGAS_AWIN_URL =
   "https://www.awin1.com/cread.php?awinmid=6145&awinaffid=2892109&ued=https%3A%2F%2Fwww.caesars.com%2Fparis-las-vegas";
 
+/** Expedia Travel Shop — FIFA World Cup 2026 hotel collection (homepage FIFA Hotels section). */
+export const EXPEDIA_TRAVEL_SHOP_URL =
+  "https://www.expedia.ca/shop/goalpassport/collection/best-fifa-world-cup-2026-hotels";
+
+/** Optional override via `NEXT_PUBLIC_EXPEDIA_TRAVEL_SHOP_URL` */
+export function getExpediaTravelShopOutbound(): { url: string; monetized: boolean } {
+  const url = process.env.NEXT_PUBLIC_EXPEDIA_TRAVEL_SHOP_URL?.trim() || EXPEDIA_TRAVEL_SHOP_URL;
+  return { url, monetized: true };
+}
+
 /**
  * Hotel affiliate outbound URLs. Not legal advice — align link format with your partner contract.
  *

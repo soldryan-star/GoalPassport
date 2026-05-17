@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE, getCity, type CityGuide } from "@/data/cities";
 import { BLOG_POSTS } from "@/data/blog";
+import { FifaHotelsSection } from "@/components/home/fifa-hotels-section";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
 const FEATURED_SLUGS = [
@@ -75,6 +76,8 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      <FifaHotelsSection />
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
