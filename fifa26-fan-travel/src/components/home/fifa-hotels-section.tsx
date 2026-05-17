@@ -101,7 +101,7 @@ export function FifaHotelsSection() {
               <OutboundButton
                 href={expediaUrl}
                 monetized={monetized}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2.5 text-sm font-semibold text-emerald-300 transition duration-300 hover:border-emerald-400/60 hover:bg-emerald-500/20 hover:text-emerald-200"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-emerald-500/20 transition duration-300 hover:scale-[1.02] hover:brightness-110 active:scale-[0.98]"
               >
                 View Hotels
               </OutboundButton>

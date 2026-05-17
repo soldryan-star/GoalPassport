@@ -32,13 +32,23 @@ export default function HotelsHubPage() {
       </a>
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {HOTEL_CATEGORIES.map((c) => (
-          <Link key={c.slug} href={`/hotels/${c.slug}`}>
-            <GlassPanel className="h-full transition hover:border-emerald-500/40">
+          <GlassPanel key={c.slug} className="flex h-full flex-col transition hover:border-emerald-500/40">
+            <Link href={`/hotels/${c.slug}`} className="flex-1">
               <h2 className="font-display text-3xl text-zinc-900 dark:text-white">{c.title}</h2>
               <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">{c.description}</p>
-              <span className="mt-6 inline-block text-sm font-bold text-emerald-600 dark:text-emerald-400">View listings →</span>
-            </GlassPanel>
-          </Link>
+              <span className="mt-4 inline-block text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                Read guide →
+              </span>
+            </Link>
+            <a
+              href={expediaUrl}
+              target="_blank"
+              rel={monetized ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+              className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-900/25 transition hover:brightness-110"
+            >
+              View on Expedia
+            </a>
+          </GlassPanel>
         ))}
       </div>
     </div>
