@@ -5,8 +5,7 @@ import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
-const HOTEL_HERO_IMAGE =
-  "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920&q=80&auto=format&fit=crop";
+const HOTEL_HERO_IMAGE = "/hotels-bg.png";
 
 const FEATURED_HOTEL_CITIES = [
   {
@@ -63,11 +62,18 @@ export function FifaHotelsSection() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/95 via-zinc-950/88 to-zinc-950/75" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(16,185,129,0.18),transparent)]" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60%200H0v60%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.04)%22%2F%3E%3C%2Fsvg%3E')]" />
+        {/* Deep left scrim — keeps all text & cards readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/96 via-zinc-950/82 to-zinc-950/55" />
+        {/* Bottom darkener — anchors the section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
+        {/* Emerald brand bloom — left-center where text lives */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_18%_50%,rgba(16,185,129,0.15),transparent)]" />
+        {/* Gold chandelier warmth — echoes the lobby lighting */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_20%,rgba(251,191,36,0.07),transparent)]" />
+        {/* Cinematic edge vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_80%_at_50%_50%,transparent,rgba(0,0,0,0.50))]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">

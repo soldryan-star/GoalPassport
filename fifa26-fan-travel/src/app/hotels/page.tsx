@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { HOTEL_CATEGORIES } from "@/data/hotels";
 import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
@@ -14,7 +15,24 @@ export default function HotelsHubPage() {
   const { url: expediaUrl, monetized } = getExpediaTravelShopOutbound();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+    <div className="relative min-h-screen">
+      {/* Luxury hotel lobby background */}
+      <Image
+        src="/hotels-bg.png"
+        alt="Luxury hotel lobby with gold chandeliers and city skyline"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/92" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_50%_at_20%_40%,rgba(16,185,129,0.12),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_35%_at_50%_15%,rgba(251,191,36,0.07),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_80%_at_50%_50%,transparent,rgba(0,0,0,0.45))]" />
+
+    <div className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Stays</p>
       <h1 className="mt-2 font-display text-5xl text-zinc-900 dark:text-white">Hotel intelligence hub</h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
@@ -51,6 +69,7 @@ export default function HotelsHubPage() {
           </GlassPanel>
         ))}
       </div>
+    </div>
     </div>
   );
 }
