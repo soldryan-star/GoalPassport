@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE, getCity, type CityGuide } from "@/data/cities";
 import { BLOG_POSTS } from "@/data/blog";
+import { CityCard } from "@/components/cards/city-card";
 import { FifaHotelsSection } from "@/components/home/fifa-hotels-section";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
@@ -98,21 +99,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredCities.map((c) =>
-            c ? (
-              <Link key={c.slug} href={`/cities/${c.slug}`}>
-                <GlassPanel className="h-full">
-                  <div className={`mb-4 h-2 rounded-full bg-gradient-to-r ${c.accent}`} />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">{c.country}</p>
-                  <h3 className="mt-1 font-display text-3xl text-zinc-900 dark:text-white">{c.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{c.tagline}</p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                    City guide →
-                  </p>
-                </GlassPanel>
-              </Link>
-            ) : null,
-          )}
+          {featuredCities.map((c, i) => (c ? <CityCard key={c.slug} city={c} index={i} /> : null))}
         </div>
       </section>
 

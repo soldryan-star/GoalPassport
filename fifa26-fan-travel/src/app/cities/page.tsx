@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CITIES } from "@/data/cities";
-import { GlassPanel } from "@/components/ui/glass-panel";
+import { CityCard } from "@/components/cards/city-card";
+import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
+import { ExpediaCta } from "@/components/affiliate/expedia-cta";
 
 export const metadata: Metadata = {
   title: "Host Cities",
@@ -18,18 +19,11 @@ export default function CitiesPage() {
         Sixteen cities across three countries — from Vancouver and Toronto to Mexico’s trio and eleven U.S. hosts. Each
         page includes where to stay, how to move, bars, fan zones, food, and stadium-area hotels.
       </p>
+      <AffiliateNotice className="mt-6 max-w-2xl" />
+      <ExpediaCta label="View FIFA hotel collection on Expedia" className="mt-6" />
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {CITIES.map((c) => (
-          <Link key={c.slug} href={`/cities/${c.slug}`}>
-            <GlassPanel className="h-full">
-              <div className={`mb-4 h-2 rounded-full bg-gradient-to-r ${c.accent}`} />
-              <h2 className="font-display text-3xl text-zinc-900 dark:text-white">{c.name}</h2>
-              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{c.tagline}</p>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                City guide →
-              </p>
-            </GlassPanel>
-          </Link>
+        {CITIES.map((c, i) => (
+          <CityCard key={c.slug} city={c} index={i} />
         ))}
       </div>
     </div>

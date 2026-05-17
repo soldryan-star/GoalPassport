@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCity, getCitySlugs, type CityGuide } from "@/data/cities";
+import { getCity, getCitySlugs, type CityGuide, type HostCitySlug } from "@/data/cities";
+import {
+  cityHasExpediaPicks,
+  getExpediaHotelsForCity,
+} from "@/data/expedia-collection";
+import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
+import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
+import { ExpediaCta } from "@/components/affiliate/expedia-cta";
 import { GlassPanel } from "@/components/ui/glass-panel";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -52,10 +59,46 @@ function BarList({ city }: { city: CityGuide }) {
   );
 }
 
+function ExpediaFeaturedHotels({ slug, cityName }: { slug: HostCitySlug; cityName: string }) {
+  const hotels = getExpediaHotelsForCity(slug);
+  if (hotels.length === 0) return null;
+
+  const { url, monetized } = getExpediaTravelShopOutbound();
+
+  return (
+    <GlassPanel>
+      <h2 className="font-display text-2xl text-zinc-900 dark:text-white">
+        Featured FIFA 2026 hotel picks in {cityName}
+      </h2>
+      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+        Curated from our Expedia Travel Shop collection — same shop, city-matched names.
+      </p>
+      <ul className="mt-4 space-y-3">
+        {hotels.map((hotelName) => (
+          <li key={hotelName}>
+            <a
+              href={url}
+              target="_blank"
+              rel={monetized ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+              className="text-sm font-medium text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
+            >
+              {hotelName} →
+            </a>
+          </li>
+        ))}
+      </ul>
+      <AffiliateNotice className="mt-4" />
+    </GlassPanel>
+  );
+}
+
 export default async function CityPage({ params }: Props) {
   const { slug } = await params;
   const city = getCity(slug);
   if (!city) notFound();
+
+  const hostSlug = city.slug as HostCitySlug;
+  const hasExpediaPicks = cityHasExpediaPicks(hostSlug);
 
   return (
     <article>
@@ -97,21 +140,29 @@ export default async function CityPage({ params }: Props) {
             <p className="text-sm text-zinc-600 dark:text-zinc-400">{city.budgetVsLuxury.luxury}</p>
           </GlassPanel>
         </div>
+
+        <GlassPanel>
+          <h2 className="font-display text-2xl text-zinc-900 dark:text-white">Book hotels in {city.name}</h2>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            Shop FIFA World Cup 2026™ stays in our Expedia Travel Shop — commission-supported links help keep
+            GoalPassport free for fans.
+          </p>
+          <ExpediaCta label="Book hotel deals on Expedia" className="mt-6" />
+          <Link
+            href="/hotels"
+            className="mt-4 inline-block text-sm font-semibold text-emerald-600 hover:underline dark:text-emerald-400"
+          >
+            Browse editorial hotel guides →
+          </Link>
+          <AffiliateNotice className="mt-4" />
+        </GlassPanel>
+
+        {hasExpediaPicks ? <ExpediaFeaturedHotels slug={hostSlug} cityName={city.name} /> : null}
+
         <div className="grid gap-8 lg:grid-cols-2">
           <BulletList title="Fan zones & activations" items={city.fanZones} />
           <BulletList title="Restaurant picks" items={city.restaurants} />
         </div>
-
-        <GlassPanel className="text-center">
-          <p className="font-display text-2xl text-zinc-900 dark:text-white">Lock your stay</p>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Compare hotels, budget picks, and Airbnb neighbourhoods.</p>
-          <Link
-            href="/hotels"
-            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-6 text-sm font-bold text-zinc-950"
-          >
-            Open hotel hub
-          </Link>
-        </GlassPanel>
       </div>
     </article>
   );
