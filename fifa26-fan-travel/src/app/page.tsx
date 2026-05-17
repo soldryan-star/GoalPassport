@@ -6,6 +6,7 @@ import { BLOG_POSTS } from "@/data/blog";
 import { CityCard } from "@/components/cards/city-card";
 import { FifaHotelsSection } from "@/components/home/fifa-hotels-section";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { PlaneRouteAnimation } from "@/components/home/messi-animation";
 
 const FEATURED_SLUGS = [
   "toronto",
@@ -46,6 +47,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
         {/* Subtle emerald tint */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.30),transparent)]" aria-hidden />
+        <PlaneRouteAnimation />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-400">
             FIFA World Cup 2026™

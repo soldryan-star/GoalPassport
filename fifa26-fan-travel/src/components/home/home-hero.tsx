@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import { CountdownFifa } from "@/components/home/countdown-fifa";
 import { SportsbookCta } from "@/components/affiliate/sportsbook-cta";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { MessiAnimation } from "@/components/home/messi-animation";
 
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-white/10">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(16,185,129,0.35),transparent)]" />
       <div className="pointer-events-none absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60%200H0v60%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.04)%22%2F%3E%3C%2Fsvg%3E')]" />
+      <MessiAnimation />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <p className="text-xs font-bold uppercase tracking-[0.35em] text-emerald-400/90">FIFA World Cup 2026™ fan field guide</p>
