@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SITE, getCity, type CityGuide } from "@/data/cities";
 import { BLOG_POSTS } from "@/data/blog";
@@ -32,15 +33,27 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.22),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.28),transparent)]" />
+        {/* Aerial stadium hero image */}
+        <Image
+          src="https://images.unsplash.com/photo-1556962021-9d0303621643?w=1800&q=80&auto=format&fit=crop"
+          alt="Aerial view of a packed soccer stadium with a vivid green pitch"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Dark scrim so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
+        {/* Subtle emerald tint */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(16,185,129,0.30),transparent)]" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-600 dark:text-emerald-400">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-400">
             FIFA World Cup 2026™
           </p>
-          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[0.95] tracking-tight text-zinc-900 sm:text-6xl lg:text-7xl dark:text-white">
+          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Plan your fan route across every host city
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-200">
             {SITE.name} is your independent guide to stadium logistics, where to stay, how to move, sports bars, fan
             zones, and matchday energy — built for fans flying multi-city brackets, not brochure copy.
           </p>
@@ -64,15 +77,15 @@ export default function Home() {
               Read the latest →
             </Link>
           </div>
-          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-500 dark:text-zinc-500">
+          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-400">
             <li>
-              <span className="font-semibold text-zinc-700 dark:text-zinc-300">16 cities</span> · 3 countries
+              <span className="font-semibold text-zinc-200">16 cities</span> · 3 countries
             </li>
             <li>
-              <span className="font-semibold text-zinc-700 dark:text-zinc-300">Hotels & areas</span> · near stadiums
+              <span className="font-semibold text-zinc-200">Hotels & areas</span> · near stadiums
             </li>
             <li>
-              <span className="font-semibold text-zinc-700 dark:text-zinc-300">Bars & fan zones</span> · local picks
+              <span className="font-semibold text-zinc-200">Bars & fan zones</span> · local picks
             </li>
           </ul>
         </div>
