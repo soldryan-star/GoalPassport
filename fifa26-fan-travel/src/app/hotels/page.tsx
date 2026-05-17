@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HOTEL_CATEGORIES } from "@/data/hotels";
+import { getExpediaTravelShopOutbound } from "@/lib/affiliate";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { AffiliateNotice } from "@/components/affiliate/affiliate-notice";
 
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function HotelsHubPage() {
+  const { url: expediaUrl, monetized } = getExpediaTravelShopOutbound();
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500">Stays</p>
@@ -19,6 +22,14 @@ export default function HotelsHubPage() {
         2026™.
       </p>
       <AffiliateNotice className="mt-6 max-w-2xl" />
+      <a
+        href={expediaUrl}
+        target="_blank"
+        rel={monetized ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-900/25 transition hover:brightness-110"
+      >
+        View FIFA Hotel Collection on Expedia
+      </a>
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {HOTEL_CATEGORIES.map((c) => (
           <Link key={c.slug} href={`/hotels/${c.slug}`}>
